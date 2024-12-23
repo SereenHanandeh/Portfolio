@@ -1,0 +1,23 @@
+/* تغيير شكل المؤشر عند التمرير */
+::-webkit-scrollbar {
+  width: 12px; /* عرض شريط التمرير */
+  height: 12px; /* ارتفاع شريط التمرير */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* لون الزر في شريط التمرير */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* تغيير اللون عند التأشير */
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* تغيير المؤشر عند التمرير */
+::-webkit-scrollbar {
+  cursor: url("../assets/cursor.png"), pointer; /* تحديد المؤشر المخصص */
+}
