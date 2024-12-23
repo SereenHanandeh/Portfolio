@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import ProfileImage from "../assets/profile.jpg";
-import Resume from "../assets/resume.pdf";
+import Resume from "../assets/Resume.pdf";
 
 const About = () => {
   const letterVariants = {
@@ -90,7 +90,7 @@ When working with me, you can expect dedication, attention to detail, and a stro
               alt="Sereen's Profile"
               className="w-64 h-64 rounded-full border-4 border-pink-400 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-6 hover:shadow-2xl hover:border-purple-500"
               style={{
-                width: "550px", 
+                width: "550px",
                 height: "200px",
                 transition:
                   "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out",
