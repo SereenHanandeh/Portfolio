@@ -24,12 +24,13 @@ const About = () => {
   const description = `
 Hello, I'm Sereen! I’m a passionate web developer who loves building beautiful and interactive websites. My mission is to turn your ideas into reality with clean code and modern design. Let's create something amazing together!
 
-I specialize in modern web development technologies like React.js, crafting seamless and engaging user experiences. 
+I specialize in modern web development technologies like React.js, crafting seamless and engaging user experiences.
 
 In my free time, I enjoy exploring new programming trends, solving coding challenges, and enhancing my skills in front-end and full-stack development.
 
 When working with me, you can expect dedication, attention to detail, and a strong commitment to delivering high-quality projects that exceed your expectations.
-`;
+  `;
+
   const dots = Array.from({ length: 100 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
@@ -42,17 +43,17 @@ When working with me, you can expect dedication, attention to detail, and a stro
       <motion.section
         id="about"
         key="about-section"
-        className="h-screen flex items-center justify-center px-8 md:px-16 relative overflow-hidden"
+        className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 sm:px-8 lg:px-16 relative overflow-hidden"
         initial="hidden"
         animate="visible"
         exit="exit"
         style={{
-          fontFamily: "'Poppins', sans-serif", // هنا حددنا الخط بشكل عام
+          fontFamily: "'Poppins', sans-serif",
           background: "linear-gradient(to bottom, #1e1e2f, #0d0d1a)",
           color: "#fff",
         }}
       >
-        {/* النقاط المتحركة */}
+        {/* Animated Dots */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {dots.map((dot) => (
             <motion.div
@@ -77,8 +78,9 @@ When working with me, you can expect dedication, attention to detail, and a stro
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center space-x-8 text-center md:text-left relative z-10">
-          {/* صورة الملف الشخصي */}
+        {/* Main Content */}
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8 text-center md:text-left relative z-10">
+          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -88,23 +90,20 @@ When working with me, you can expect dedication, attention to detail, and a stro
             <motion.img
               src={ProfileImage}
               alt="Sereen's Profile"
-              className="w-64 h-64 rounded-full border-4 border-pink-400 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-6 hover:shadow-2xl hover:border-purple-500"
-              style={{
-                width: "550px",
-                height: "200px",
-                transition:
-                  "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out",
-              }}
+              className="w-32 h-32 sm:w-40 sm:h-40 md:w-64 md:h-64 rounded-full border-4 border-pink-400 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-6 hover:shadow-2xl hover:border-purple-500"
             />
           </motion.div>
 
-          {/* النصوص */}
-          <motion.div variants={containerVariants} className="space-y-6">
-            {/* العنوان */}
+          {/* Text Content */}
+          <motion.div
+            variants={containerVariants}
+            className="space-y-6 px-4 md:px-0 max-w-xl"
+          >
+            {/* Title */}
             <h2
-              className="text-6xl font-semibold text-pink-400 mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl font-semibold text-pink-400 mb-6"
               style={{
-                fontFamily: "'Poppins', sans-serif", // تطبيق الخط على العنوان
+                fontFamily: "'Poppins', sans-serif",
                 textShadow: "2px 2px 8px rgba(0, 0, 0, 0.4)",
               }}
             >
@@ -115,13 +114,13 @@ When working with me, you can expect dedication, attention to detail, and a stro
               ))}
             </h2>
 
-            {/* الوصف */}
+            {/* Description */}
             <motion.p
               variants={containerVariants}
-              className="text-gray-300 text-lg leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed"
               style={{
                 lineHeight: "1.8",
-                fontFamily: "'Poppins', sans-serif", // تطبيق الخط على النص
+                fontFamily: "'Poppins', sans-serif",
                 fontWeight: "400",
               }}
             >
@@ -132,14 +131,14 @@ When working with me, you can expect dedication, attention to detail, and a stro
               ))}
             </motion.p>
 
-            {/* زر تحميل السيرة الذاتية */}
+            {/* Resume Download Button */}
             <motion.a
               href={Resume}
               download="Sereen_Resume.pdf"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 1 }}
-              className="inline-block px-8 py-3 bg-gradient-to-r from-pink-400 to-purple-500 text-gray-900 font-semibold text-lg rounded-lg shadow-lg transform transition-all duration-300 hover:bg-gradient-to-l hover:-translate-y-1 hover:shadow-xl"
+              className="inline-block px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-gradient-to-r from-pink-400 to-purple-500 text-gray-900 font-semibold text-sm sm:text-base md:text-lg rounded-lg shadow-lg transform transition-all duration-300 hover:bg-gradient-to-l hover:-translate-y-1 hover:shadow-xl"
             >
               Download My Resume
             </motion.a>

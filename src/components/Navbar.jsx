@@ -5,6 +5,7 @@ import { FaLaptopCode } from "react-icons/fa";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track if the menu is open
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -17,12 +18,12 @@ const Navbar = () => {
   window.addEventListener("scroll", handleScroll);
 
   const handleLinkClick = (e, id) => {
-    e.preventDefault(); // منع السلوك الافتراضي للرابط
-    setIsLoading(true); // بدء التحميل
+    e.preventDefault();
+    setIsLoading(true);
     setTimeout(() => {
-      setIsLoading(false); // انتهاء التحميل
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" }); // تمرير سلس
-    }, 1500); // زمن التحميل المحاكى (1.5 ثانية)
+      setIsLoading(false);
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }, 1500);
   };
 
   return (
@@ -41,6 +42,7 @@ const Navbar = () => {
         } transition-colors duration-300`}
       >
         <div className="container mx-auto flex justify-between items-center p-4">
+          {/* Logo and Branding */}
           <motion.div
             whileHover={{ scale: 1.1 }}
             className="flex items-center space-x-2"
@@ -54,6 +56,7 @@ const Navbar = () => {
             </h1>
           </motion.div>
 
+          {/* Navigation Links (Desktop) */}
           <ul className="hidden md:flex space-x-6">
             <li>
               <a
@@ -102,9 +105,12 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* قائمة مدمجة للشاشات الصغيرة */}
+          {/* Mobile Hamburger Menu */}
           <div className="md:hidden">
-            <button className="text-white focus:outline-none">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle the menu state
+              className="text-white focus:outline-none"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -122,6 +128,59 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu (Show when menu is open) */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-gray-900 p-4 space-y-4">
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="#home"
+                  onClick={(e) => handleLinkClick(e, "home")}
+                  className="block text-white hover:text-pink-400"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  onClick={(e) => handleLinkClick(e, "about")}
+                  className="block text-white hover:text-pink-400"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  onClick={(e) => handleLinkClick(e, "projects")}
+                  className="block text-white hover:text-pink-400"
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  onClick={(e) => handleLinkClick(e, "skills")}
+                  className="block text-white hover:text-pink-400"
+                >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={(e) => handleLinkClick(e, "contact")}
+                  className="block text-white hover:text-pink-400"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
       </motion.nav>
     </>
   );
