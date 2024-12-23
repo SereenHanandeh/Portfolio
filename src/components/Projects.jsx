@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import fffImage from "../assets/fff.png"; // Import the image
+import fffImage from "../assets/fff.png"; // استيراد الصورة
 import cursorImage from "../assets/cursor.png";
 
 const Projects = () => {
@@ -11,7 +11,7 @@ const Projects = () => {
       name: "Hospital Management System",
       description: `This Hospital Management System is a full-stack web application designed to streamline hospital operations and manage departments, doctors, and patient records.`,
       technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
-      interfaceImage: fffImage, // Using the imported image
+      interfaceImage: fffImage, // هنا نقوم باستخدام الصورة المستوردة
     },
     {
       name: "Social Media Platform",
@@ -23,7 +23,7 @@ const Projects = () => {
         "Express Js",
         "React",
         "Redux",
-        "Socket.io",
+        "Sockit io",
         "Cloudinary",
       ],
       demoLink: "https://moltaqajo.netlify.app/",
@@ -40,25 +40,27 @@ const Projects = () => {
   };
 
   const handleOverlayClick = (e) => {
+    // إغلاق النافذة عند الضغط على المنطقة الخارجية
     if (e.target === e.currentTarget) {
       closeModal();
     }
   };
 
+  // إنشاء عدد أكبر من المربعات بأحجام مختلفة
   const squares = Array.from({ length: 40 }, (_, index) => ({
     id: index,
-    size: Math.random() * 60 + 50,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
+    size: Math.random() * 60 + 50, // حجم عشوائي بين 50 و 110
+    x: Math.random() * 100, // الموضع الأفقي العشوائي
+    y: Math.random() * 100, // الموضع العمودي العشوائي
     color: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
       Math.random() * 256
-    )}, ${Math.floor(Math.random() * 256)}, 0.3)`,
+    )}, ${Math.floor(Math.random() * 256)}, 0.3)`, // لون عشوائي مع شفافية أقل
   }));
 
   return (
     <section
       id="projects"
-      className="relative h-auto md:h-screen text-white py-16 bg-gray-900 overflow-hidden"
+      className="relative h-screen text-white py-16 bg-gray-900 overflow-hidden"
     >
       {/* خلفية متحركة باستخدام مربعات */}
       <div className="absolute inset-0 pointer-events-none">
@@ -84,7 +86,7 @@ const Projects = () => {
                 `${square.y + Math.random() * 15 - 7}vh`,
                 `${square.y}vh`,
               ],
-              opacity: [0.3, 0.7, 0.3],
+              opacity: [0.3, 0.7, 0.3], // شفافية أعلى
             }}
             transition={{
               duration: Math.random() * 5 + 4,
@@ -96,51 +98,48 @@ const Projects = () => {
         ))}
       </div>
 
-      <h2 className="text-3xl sm:text-4xl md:text-5xl text-center font-extrabold mb-12 relative z-10">
+      <h2 className="text-5xl text-center font-extrabold mb-12 relative z-10">
         My Projects
       </h2>
 
-      {/* شبكة المشاريع */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 relative z-10">
+      <div className="flex flex-col items-center space-y-6 md:space-y-8 relative z-10">
         {projects.map((project, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.05 }}
-            className="w-full p-4 sm:p-6 bg-gradient-to-tr from-fuchsia-600 to-indigo-600 rounded-3xl shadow-2xl text-center cursor-pointer transition-transform duration-300"
+            className="w-full max-w-lg p-6 bg-gradient-to-tr from-fuchsia-600 to-indigo-600 rounded-3xl shadow-2xl text-center cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleProjectClick(project)}
             style={{
-              cursor: `url(${cursorImage}), pointer`,
+              cursor: `url(${cursorImage}), pointer`, // تغيير المؤشر عند التأشير
             }}
           >
-            <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-4 text-white">
+            <h3 className="text-3xl font-extrabold mb-4 text-white">
               {project.name}
             </h3>
           </motion.div>
         ))}
       </div>
 
-      {/* نافذة المشروع */}
+      {/* Modal */}
       {selectedProject && (
         <motion.div
           className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={handleOverlayClick}
+          onClick={handleOverlayClick} // إضافة حدث للنقر على الخلفية
         >
           <motion.div
-            className="bg-gray-900 text-white p-6 sm:p-8 rounded-2xl w-11/12 md:w-1/2 max-h-[80vh] overflow-y-auto shadow-2xl"
+            className="bg-gray-900 text-white p-8 rounded-2xl w-11/12 md:w-1/2 max-h-[80vh] overflow-y-auto shadow-2xl"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
           >
-            <h3 className="text-lg sm:text-xl md:text-3xl font-extrabold text-fuchsia-400 mb-4">
+            <h3 className="text-3xl font-extrabold text-fuchsia-400 mb-4">
               {selectedProject.name}
             </h3>
-            <p className="text-sm sm:text-base text-gray-300 mb-4">
-              {selectedProject.description}
-            </p>
-            <h4 className="text-sm sm:text-lg font-semibold text-fuchsia-300 mb-2">
+            <p className="text-gray-300 mb-4">{selectedProject.description}</p>
+            <h4 className="text-lg font-semibold text-fuchsia-300 mb-2">
               Technologies Used:
             </h4>
             <ul className="list-disc text-gray-400 mb-4 pl-6">
@@ -149,8 +148,9 @@ const Projects = () => {
               ))}
             </ul>
 
+            {/* عرض صورة الواجهة إذا كانت موجودة */}
             {selectedProject.interfaceImage && (
-              <div className="my-4 sm:my-6">
+              <div className="my-6">
                 <img
                   src={selectedProject.interfaceImage}
                   alt="Project Interface"
@@ -171,10 +171,10 @@ const Projects = () => {
             )}
 
             {selectedProject.videoUrl && (
-              <div className="my-4 sm:my-6">
+              <div className="my-6">
                 <iframe
                   width="100%"
-                  height="200"
+                  height="315"
                   src={selectedProject.videoUrl}
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
