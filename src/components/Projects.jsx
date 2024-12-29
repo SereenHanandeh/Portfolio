@@ -12,7 +12,8 @@ const Projects = () => {
       description: `This Hospital Management System is a full-stack web application designed to streamline hospital operations and manage departments, doctors, and patient records.`,
       technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
       interfaceImage: fffImage, // هنا نقوم باستخدام الصورة المستوردة
-      githubLink: "https://github.com/username/hospital-management", // رابط GitHub
+      githubLink:
+        "https://github.com/C12-SereenHanandeh/MERAKI_Academy_Project_4",
     },
     {
       name: "Social Media Platform",
@@ -29,7 +30,7 @@ const Projects = () => {
       ],
       demoLink: "https://moltaqajo.netlify.app/",
       videoUrl: "https://www.youtube.com/embed/Qc7_vmHbi3Y",
-      githubLink: "https://github.com/username/social-media-platform", // رابط GitHub
+      githubLink: "https://github.com/username/social-media-platform",
     },
   ];
 
@@ -151,17 +152,6 @@ const Projects = () => {
               ))}
             </ul>
 
-            {/* عرض صورة الواجهة إذا كانت موجودة */}
-            {selectedProject.interfaceImage && (
-              <div className="my-6">
-                <img
-                  src={selectedProject.interfaceImage}
-                  alt="Project Interface"
-                  className="w-full rounded-lg shadow-lg"
-                />
-              </div>
-            )}
-
             {selectedProject.demoLink && (
               <div className="my-4">
                 <a
@@ -172,6 +162,17 @@ const Projects = () => {
                 >
                   Demo Link
                 </a>
+              </div>
+            )}
+
+            {/* عرض صورة الواجهة إذا كانت موجودة */}
+            {selectedProject.interfaceImage && (
+              <div className="my-6">
+                <img
+                  src={selectedProject.interfaceImage}
+                  alt="Project Interface"
+                  className="w-full rounded-lg shadow-lg"
+                />
               </div>
             )}
 
