@@ -136,7 +136,7 @@ When working with me, you can expect dedication, attention to detail, and a stro
               {/* زر تحميل السيرة الذاتية */}
               <motion.a
                 href={Resume}
-                download="Sereen_Resume.pdf"
+                download="Resume.pdf"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
@@ -149,7 +149,7 @@ When working with me, you can expect dedication, attention to detail, and a stro
               <motion.a
                 href={Resume}
                 target="_blank"
-                rel="noopener noreferrer"
+                // rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
