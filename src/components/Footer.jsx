@@ -20,7 +20,7 @@ const Footer = () => {
             <li className="flex items-center">
               <FaFileAlt className="mr-2 text-blue-400" />
               <a
-                href="https://cool-dodol-bc93f4.netlify.app/resume.pdf"
+                href="https://sereenresume.netlify.app/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400"
