@@ -16,7 +16,6 @@ const Projects = () => {
  collecting user information through a form and providing a payment
  selection option. Once the user selects a payment method, an email
  confirmation is sent to the user.`,
-      interfaceImage: payMaster,
       technologies: [
         "MongoDB",
         "Mongoose",
@@ -27,15 +26,13 @@ const Projects = () => {
         "ReactJS ",
         "CSS",
       ],
-
+      interfaceImage: payMaster,
       demoLink: "https://stunning-clafoutis-dacade.netlify.app/",
       githubLink: "https://github.com/SereenHanandeh/Email-Form",
     },
     {
       name: "Social Media Platform",
       description: `The project is a social media platform. The platform is designed to connect people, facilitate sharing of content, and promote engagement through features like posts, comments, and messaging. It aims to provide a user-friendly and secure environment for people to interact and share their thoughts and ideas.`,
-      interfaceImage: social,
-
       technologies: [
         "PostgreSQL",
         "ReactJS",
@@ -46,7 +43,7 @@ const Projects = () => {
         "Sockit io",
         "Cloudinary",
       ],
-
+      interfaceImage: social,
       demoLink: "https://moltaqajo.netlify.app/",
       videoUrl: "https://www.youtube.com/embed/Qc7_vmHbi3Y",
       githubLink: "https://github.com/username/social-media-platform",
@@ -54,9 +51,8 @@ const Projects = () => {
     {
       name: "Hospital Management System",
       description: `This Hospital Management System is a full-stack web application designed to streamline hospital operations and manage departments, doctors, and patient records.`,
-      interfaceImage: fffImage,
       technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
-
+      interfaceImage: fffImage,
       githubLink:
         "https://github.com/C12-SereenHanandeh/MERAKI_Academy_Project_4",
     },
@@ -180,6 +176,17 @@ const Projects = () => {
               ))}
             </ul>
 
+            {/* عرض صورة الواجهة إذا كانت موجودة */}
+            {selectedProject.interfaceImage && (
+              <div className="my-6">
+                <img
+                  src={selectedProject.interfaceImage}
+                  alt="Project Interface"
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </div>
+            )}
+
             {selectedProject.demoLink && (
               <div className="my-4">
                 <a
@@ -190,17 +197,6 @@ const Projects = () => {
                 >
                   Demo Link
                 </a>
-              </div>
-            )}
-
-            {/* عرض صورة الواجهة إذا كانت موجودة */}
-            {selectedProject.interfaceImage && (
-              <div className="my-6">
-                <img
-                  src={selectedProject.interfaceImage}
-                  alt="Project Interface"
-                  className="w-full rounded-lg shadow-lg"
-                />
               </div>
             )}
 
