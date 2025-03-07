@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import fffImage from "../assets/fff.png"; // استيراد الصورة
+import fffImage from "../assets/fff.png";
+import payMaster from "../assets/payMaster.png";
 import cursorImage from "../assets/cursor.png";
 
 const Projects = () => {
@@ -8,12 +9,25 @@ const Projects = () => {
 
   const projects = [
     {
-      name: "Hospital Management System",
-      description: `This Hospital Management System is a full-stack web application designed to streamline hospital operations and manage departments, doctors, and patient records.`,
-      technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
-      interfaceImage: fffImage, // هنا نقوم باستخدام الصورة المستوردة
-      githubLink:
-        "https://github.com/C12-SereenHanandeh/MERAKI_Academy_Project_4",
+      name: " Email - Form Application (MERN Stack)",
+      description: ` This project is a stand-alone full-stack application built using the MERN
+ Stack (MongoDB, Express.js, React.js, Node.js). It focuses on
+ collecting user information through a form and providing a payment
+ selection option. Once the user selects a payment method, an email
+ confirmation is sent to the user.`,
+      technologies: [
+        "MongoDB",
+        "Mongoose",
+        "NodeJS",
+        "ExpressJS",
+        "Nodemailer",
+        " Axios",
+        "ReactJS ",
+        "CSS",
+      ],
+      interfaceImage: payMaster,
+      demoLink: "https://stunning-clafoutis-dacade.netlify.app/",
+      githubLink: "https://github.com/SereenHanandeh/Email-Form",
     },
     {
       name: "Social Media Platform",
@@ -28,9 +42,18 @@ const Projects = () => {
         "Sockit io",
         "Cloudinary",
       ],
+
       demoLink: "https://moltaqajo.netlify.app/",
       videoUrl: "https://www.youtube.com/embed/Qc7_vmHbi3Y",
       githubLink: "https://github.com/username/social-media-platform",
+    },
+    {
+      name: "Hospital Management System",
+      description: `This Hospital Management System is a full-stack web application designed to streamline hospital operations and manage departments, doctors, and patient records.`,
+      technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
+      interfaceImage: fffImage,
+      githubLink:
+        "https://github.com/C12-SereenHanandeh/MERAKI_Academy_Project_4",
     },
   ];
 

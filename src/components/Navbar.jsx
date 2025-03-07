@@ -23,7 +23,7 @@ const Navbar = () => {
     setTimeout(() => {
       setIsLoading(false); // End loading state
       document.getElementById(id).scrollIntoView({ behavior: "smooth" }); // Smooth scroll
-    }, 1500); // Simulate loading time
+    }, 1000); // Simulate loading time
   };
 
   return (
