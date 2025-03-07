@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import fffImage from "../assets/fff.png";
 import payMaster from "../assets/payMaster.png";
+import fffImage from "../assets/fff.png";
+import social from "../assets/p2.png";
 import cursorImage from "../assets/cursor.png";
 
 const Projects = () => {
@@ -15,6 +16,7 @@ const Projects = () => {
  collecting user information through a form and providing a payment
  selection option. Once the user selects a payment method, an email
  confirmation is sent to the user.`,
+      interfaceImage: payMaster,
       technologies: [
         "MongoDB",
         "Mongoose",
@@ -25,13 +27,15 @@ const Projects = () => {
         "ReactJS ",
         "CSS",
       ],
-      interfaceImage: payMaster,
+
       demoLink: "https://stunning-clafoutis-dacade.netlify.app/",
       githubLink: "https://github.com/SereenHanandeh/Email-Form",
     },
     {
       name: "Social Media Platform",
       description: `The project is a social media platform. The platform is designed to connect people, facilitate sharing of content, and promote engagement through features like posts, comments, and messaging. It aims to provide a user-friendly and secure environment for people to interact and share their thoughts and ideas.`,
+      interfaceImage: social,
+
       technologies: [
         "PostgreSQL",
         "ReactJS",
@@ -50,8 +54,9 @@ const Projects = () => {
     {
       name: "Hospital Management System",
       description: `This Hospital Management System is a full-stack web application designed to streamline hospital operations and manage departments, doctors, and patient records.`,
-      technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
       interfaceImage: fffImage,
+      technologies: ["ReactJS", "Axios", "Node.js", "MongoDB"],
+
       githubLink:
         "https://github.com/C12-SereenHanandeh/MERAKI_Academy_Project_4",
     },
